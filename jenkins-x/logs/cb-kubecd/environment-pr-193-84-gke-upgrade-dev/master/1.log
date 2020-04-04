@@ -1,0 +1,491 @@
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-credential-initializer-6k4r6[0m
+{"level":"warn","ts":1585981893.5742395,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1585981893.5749328,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-working-dir-initializer-mg5pq[0m
+{"level":"warn","ts":1585981894.2646453,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1585981894.2661362,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-git-source-cb-kubecd-environment-pr-193-84-lfdx9-d8qhr[0m
+{"level":"warn","ts":1585981928.4273322,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1585981929.5768425,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/cb-kubecd/environment-pr-193-84-gke-upgrade-dev.git @ v0.0.1 in path /workspace/source"}
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:3cd496075b13d939cb4880c6acd6b9881a09e549
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-validate-git[0m
+Git configured for user: jenkins-x-bot and email jenkins-x@googlegroups.com
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-verify-preinstall[0m
+no need to reconnect to cluster
+Verifying the kubernetes cluster before we try to boot Jenkins X in namespace: **
+Trying to lazily create any missing resources to get the current cluster ready to boot Jenkins X
+Verifying Ingress...
+
+Using namespace '**' from context named '' on server ''.
+
+Verifying the CLI packages using version stream URL: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git and git ref: 243342aacbc930d08a7fedf479022f3f910bcdaf
+using version 2.0.1263 of **
+CLI packages kubectl, git, helm seem to be setup correctly
+NAME               VERSION
+**                 2.0.1263
+Kubernetes cluster v1.14.10-gke.27
+kubectl            v1.16.0
+helm client        2.14.3
+git                2.21.1
+
+Verifying Storage...
+WARNING: No URL provided for storage: logs
+WARNING: No URL provided for storage: reports
+WARNING: No URL provided for storage: repository
+WARNING: Your requirements have not enabled cloud storage for backup - we recommend enabling this for kubernetes provider gke
+Storage configuration looks good
+
+Helm installed and configured
+Ensuring Helm chart repository https://storage.googleapis.com/chartmuseum.jenkins-x.io is configured
+Validating Kaniko secret in namespace **
+
+Cluster looks good, you are ready to '** boot' now!
+
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-install-jx-crds[0m
+Jenkins X CRDs upgraded with success
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-install-velero[0m
+Modified file /workspace/source/systems/velero/Chart.yaml to set the chart to version 1
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git and git ref: 243342aacbc930d08a7fedf479022f3f910bcdaf
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-install-velero-backups[0m
+Modified file /workspace/source/systems/velero-backups/Chart.yaml to set the chart to version 1
+Ignoring templates/default-backup.yaml
+No requirements file: /tmp/**-helm-apply-279953401/velero-backups/requirements.yaml so not checking for missing versions
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-install-nginx-controller[0m
+Modified file /workspace/source/systems/**ing/Chart.yaml to set the chart to version 1
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git and git ref: 243342aacbc930d08a7fedf479022f3f910bcdaf
+
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-create-install-values[0m
+validating the external-dns secret in namespace **
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-install-external-dns[0m
+Modified file /workspace/source/systems/external-dns/Chart.yaml to set the chart to version 1
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git and git ref: 243342aacbc930d08a7fedf479022f3f910bcdaf
+Adding missing Helm repo: charts.bitnami.com https://charts.bitnami.com/bitnami
+WARNING: No secrets found on "helm/repos" due: reading the secret "helm/repos" from vault: no secret "helm/repos" not found in vault
+Read credentials for https://charts.bitnami.com/bitnami from vault helm/repos
+Successfully added Helm repository charts.bitnami.com.
+
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-install-cert-manager-crds[0m
+customresourcedefinition.apiextensions.k8s.io/challenges.acme.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/orders.acme.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/certificates.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/clusterissuers.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/issuers.cert-manager.io configured
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-install-cert-manager[0m
+Modified file /workspace/source/systems/cm/Chart.yaml to set the chart to version 1
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git and git ref: 243342aacbc930d08a7fedf479022f3f910bcdaf
+Adding missing Helm repo: charts.jetstack.io https://charts.jetstack.io
+WARNING: No secrets found on "helm/repos" due: reading the secret "helm/repos" from vault: no secret "helm/repos" not found in vault
+Read credentials for https://charts.jetstack.io from vault helm/repos
+Successfully added Helm repository charts.jetstack.io.
+
+
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-install-acme-issuer-and-certificate[0m
+Modified file /workspace/source/systems/acme/Chart.yaml to set the chart to version 1
+Ignoring templates/cert-manager-prod-certificate.yaml
+Ignoring templates/cert-manager-prod-issuer.yaml
+Ignoring templates/cert-manager-staging-certificate.yaml
+Ignoring templates/cert-manager-staging-issuer.yaml
+No requirements file: /tmp/**-helm-apply-355403392/acme/requirements.yaml so not checking for missing versions
+
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-install-vault[0m
+Installing vault-operator operator with helm values: [image.repository=banzaicloud/vault-operator image.tag=0.4.16]
+
+Vault operator installed in namespace **
+Applying vault ingress in namespace ** for vault name **-vault-pr-193-84-gke
+ingress.extensions/**-vault-pr-193-84-gke unchanged
+WARNING: Upgrading Vault CRD from within the pipeline. No changes to the cloud provider specific configuration will occur.
+Vault '**-vault-pr-193-84-gke' in namespace '**' updated 
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-create-helm-values[0m
+defaulting to secret storage scheme vault found from requirements file at /workspace/source/**-requirements.yml
+defaulting to secret base path to the cluster name pr-193-84-gke-upgrade found from requirements file at /workspace/source/**-requirements.yml
+generated schema file /workspace/source/env/parameters.schema.json from template /workspace/source/env/parameters.tmpl.schema.json
+Jenkins X Admin Username ***** [Automatically accepted existing value]
+Jenkins X Admin Password *** [Automatically accepted existing value]
+Pipeline bot Git username c**d-bot-test [Automatically accepted existing value]
+Pipeline bot Git email address jenkins-x@googlegroups.com [Automatically accepted existing value]
+Pipeline bot Git token *** [Automatically accepted existing value]
+HMAC token, used to validate incoming webhooks. Press enter to use the generated token *** [Automatically accepted existing value]
+Do you want to configure an external Docker Registry? false [Automatically accepted existing value]
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-create-jx-auth-config[0m
+Saved the rendered configuration into templates/**-auth-configmap.yaml file
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-install-jx-auth-config[0m
+Modified file /workspace/source/systems/**-auth/Chart.yaml to set the chart to version 1
+Ignoring templates/**-auth-configmap.yaml
+No requirements file: /tmp/**-helm-apply-291637933/**-auth/requirements.yaml so not checking for missing versions
+
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-install-jenkins-x[0m
+Modified file /workspace/source/env/Chart.yaml to set the chart to version 1
+Ignoring templates/.gitignore
+Applying the kubernetes overrides at ../kubeProviders/gke/values.tmpl.yaml
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git and git ref: 243342aacbc930d08a7fedf479022f3f910bcdaf
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+WARNING: No secrets found on "helm/repos" due: reading the secret "helm/repos" from vault: no secret "helm/repos" not found in vault
+Read credentials for http://chartmuseum.jenkins-x.io from vault helm/repos
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-verify-jenkins-x-environment[0m
+Storing the requirements in team settings in the dev environment
+Validating git repository for dev environment at URL https://github.com/cb-kubecd/environment-pr-193-84-gke-upgrade-dev.git
+Validating git repository for production environment at URL https://github.com/cb-kubecd/environment-pr-193-84-gke-upgrade-production.git
+Using Git provider github at https://github.com
+? Using Git user name: *************
+? Using organisation: cb-kubecd
+Creating repository cb-kubecd/environment-pr-193-84-gke-upgrade-production
+Git repository cb-kubecd/environment-pr-193-84-gke-upgrade-production already exists
+Pushed Git repository to https://github.com/cb-kubecd/environment-pr-193-84-gke-upgrade-production
+
+Validating git repository for staging environment at URL https://github.com/cb-kubecd/environment-pr-193-84-gke-upgrade-staging.git
+Using Git provider github at https://github.com
+? Using Git user name: *************
+? Using organisation: cb-kubecd
+Creating repository cb-kubecd/environment-pr-193-84-gke-upgrade-staging
+Git repository cb-kubecd/environment-pr-193-84-gke-upgrade-staging already exists
+Pushed Git repository to https://github.com/cb-kubecd/environment-pr-193-84-gke-upgrade-staging
+
+Environment git repositories look good
+
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-install-repositories[0m
+Modified file /workspace/source/repositories/Chart.yaml to set the chart to version 1
+Ignoring templates/default-group.yaml
+No requirements file: /tmp/**-helm-apply-504344639/repositories/requirements.yaml so not checking for missing versions
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+WARNING: No secrets found on "helm/repos" due: reading the secret "helm/repos" from vault: no secret "helm/repos" not found in vault
+Read credentials for http://jenkins-x-chartmuseum:8080 from vault helm/repos
+Successfully added Helm repository jenkins-x-chartmuseum.
+
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-install-pipelines[0m
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-update-webhooks[0m
+DEBUG: Finding service url for hook in namespace **
+DEBUG: Couldn't find service url, attempting to look up via ingress
+DEBUG: found service url https://hook-**.c**du7.bdd.jenkins-x.rocks
+DEBUG: getting vault name for namespace **
+DEBUG: system vault name from config **-vault-pr-193-84-gke
+DEBUG: Using vault ingress because the Vault.DisableURLDiscovery is set in requirements file
+DEBUG: Finding ingress url for **-vault-pr-193-84-gke in namespace **
+DEBUG: found service url https://vault-**.c**du7.bdd.jenkins-x.rocks
+DEBUG: Connecting to vault on https://vault-**.c**du7.bdd.jenkins-x.rocks
+DEBUG: getting vault name for namespace **
+DEBUG: system vault name from config **-vault-pr-193-84-gke
+DEBUG: Using vault ingress because the Vault.DisableURLDiscovery is set in requirements file
+DEBUG: Finding ingress url for **-vault-pr-193-84-gke in namespace **
+DEBUG: found service url https://vault-**.c**du7.bdd.jenkins-x.rocks
+DEBUG: Connecting to vault on https://vault-**.c**du7.bdd.jenkins-x.rocks
+Updating webhooks for Owner: cb-kubecd and Repository: environment-pr-193-84-gke-upgrade-dev in git server: https://github.com
+Checking hooks for repository cb-kubecd/environment-pr-193-84-gke-upgrade-dev with user c**d-bot-test
+Found matching hook for url https://hook-**.c**du7.bdd.jenkins-x.rocks/hook
+Updating GitHub webhook for cb-kubecd/environment-pr-193-84-gke-upgrade-dev for url https://hook-**.c**du7.bdd.jenkins-x.rocks/hook
+DEBUG: getting vault name for namespace **
+DEBUG: system vault name from config **-vault-pr-193-84-gke
+DEBUG: Using vault ingress because the Vault.DisableURLDiscovery is set in requirements file
+DEBUG: Finding ingress url for **-vault-pr-193-84-gke in namespace **
+DEBUG: found service url https://vault-**.c**du7.bdd.jenkins-x.rocks
+DEBUG: Connecting to vault on https://vault-**.c**du7.bdd.jenkins-x.rocks
+DEBUG: getting vault name for namespace **
+DEBUG: system vault name from config **-vault-pr-193-84-gke
+DEBUG: Using vault ingress because the Vault.DisableURLDiscovery is set in requirements file
+DEBUG: Finding ingress url for **-vault-pr-193-84-gke in namespace **
+DEBUG: found service url https://vault-**.c**du7.bdd.jenkins-x.rocks
+DEBUG: Connecting to vault on https://vault-**.c**du7.bdd.jenkins-x.rocks
+Updating webhooks for Owner: cb-kubecd and Repository: environment-pr-193-84-gke-upgrade-production in git server: https://github.com
+Checking hooks for repository cb-kubecd/environment-pr-193-84-gke-upgrade-production with user c**d-bot-test
+Found matching hook for url https://hook-**.c**du7.bdd.jenkins-x.rocks/hook
+Updating GitHub webhook for cb-kubecd/environment-pr-193-84-gke-upgrade-production for url https://hook-**.c**du7.bdd.jenkins-x.rocks/hook
+DEBUG: getting vault name for namespace **
+DEBUG: system vault name from config **-vault-pr-193-84-gke
+DEBUG: Using vault ingress because the Vault.DisableURLDiscovery is set in requirements file
+DEBUG: Finding ingress url for **-vault-pr-193-84-gke in namespace **
+DEBUG: found service url https://vault-**.c**du7.bdd.jenkins-x.rocks
+DEBUG: Connecting to vault on https://vault-**.c**du7.bdd.jenkins-x.rocks
+DEBUG: getting vault name for namespace **
+DEBUG: system vault name from config **-vault-pr-193-84-gke
+DEBUG: Using vault ingress because the Vault.DisableURLDiscovery is set in requirements file
+DEBUG: Finding ingress url for **-vault-pr-193-84-gke in namespace **
+DEBUG: found service url https://vault-**.c**du7.bdd.jenkins-x.rocks
+DEBUG: Connecting to vault on https://vault-**.c**du7.bdd.jenkins-x.rocks
+Updating webhooks for Owner: cb-kubecd and Repository: environment-pr-193-84-gke-upgrade-staging in git server: https://github.com
+Checking hooks for repository cb-kubecd/environment-pr-193-84-gke-upgrade-staging with user *************
+Found matching hook for url https://hook-**.c**du7.bdd.jenkins-x.rocks/hook
+Updating GitHub webhook for cb-kubecd/environment-pr-193-84-gke-upgrade-staging for url https://hook-**.c**du7.bdd.jenkins-x.rocks/hook
+
+Showing logs for build [32mcb-kubecd-environment-pr-193-84-lfdx9-1[0m stage [32mrelease[0m and container [32mstep-verify-installation[0m
+verifying the Jenkins X installation in namespace **
+verifying pods
+Checking pod statuses
+POD                                               STATUS
+crier-6c4944b868-c8npx                            Running
+deck-7f5c64b45d-dqxlq                             Running
+deck-7f5c64b45d-vqvd2                             Running
+exdns-external-dns-644b5f7bb5-rr2vg               Running
+hook-647f968ffb-j8z78                             Running
+hook-647f968ffb-rq5l7                             Running
+horologium-9fdcd6b57-hfzjv                        Running
+jenkins-x-chartmuseum-d87cbb789-xk9rk             Running
+jenkins-x-controllerbuild-765df4bbdc-6zdnb        Running
+jenkins-x-controllerrole-55fbf89ccc-25rz9         Running
+jenkins-x-controllerrole-d48659c4c-lcr2d          Pending
+jenkins-x-gcactivities-1585981800-m5nks           Succeeded
+jenkins-x-gcpods-1585981800-ch**m                 Succeeded
+jenkins-x-heapster-6457df4bd8-25l2r               Pending
+jenkins-x-nexus-549cd5b574-lx78f                  Pending
+jenkins-x-nexus-8b8dfd746-x5cdd                   Running
+**-vault-pr-193-84-gke-0                          Running
+**-vault-pr-193-84-gke-configurer-bf4d8f8bf-6h66v Running
+pipeline-7dff794486-6tnq7                         Running
+pipelinerunner-75c75bb574-xv87l                   Pending
+pipelinerunner-7c747569d4-m5b52                   Running
+tekton-pipelines-controller-666488cbd5-7dk9n      Running
+tide-6bcf8f9f7f-j6rdm                             Running
+vault-operator-75d5446bb7-786x9                   Running
+WARNING: the following pods are not ready:
+Pending: jenkins-x-controllerrole-d48659c4c-lcr2d, jenkins-x-heapster-6457df4bd8-25l2r, jenkins-x-nexus-549cd5b574-lx78f, pipelinerunner-75c75bb574-xv87l
+
+Waiting 30m0s for the pods to become ready...
+
+WARNING: retrying after error: the following pods are not ready:
+Pending: jenkins-x-controllerrole-d48659c4c-lcr2d, jenkins-x-heapster-6457df4bd8-25l2r, jenkins-x-nexus-549cd5b574-lx78f, pipelinerunner-75c75bb574-xv87l
+.
+.
+
+WARNING: retrying after error: the following pods are not ready:
+Pending: jenkins-x-heapster-6457df4bd8-25l2r, jenkins-x-nexus-549cd5b574-lx78f, pipelinerunner-75c75bb574-xv87l
+.
+
+WARNING: retrying after error: the following pods are not ready:
+Running: jenkins-x-heapster-6457df4bd8-25l2r, pipelinerunner-75c75bb574-xv87l
+Pending: jenkins-x-nexus-549cd5b574-lx78f
+WARNING: retrying after error: the following pods are not ready:
+Pending: jenkins-x-nexus-549cd5b574-lx78f
+Running: pipelinerunner-7c747569d4-m5b52
+WARNING: retrying after error: the following pods are not ready:
+Pending: jenkins-x-nexus-549cd5b574-lx78f
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+error: Timed out after 30m0s, last error: the following pods are not ready:
+Pending: jenkins-x-nexus-549cd5b574-lx78f
+POD                                               STATUS
+crier-6c4944b868-c8npx                            Running
+deck-7f5c64b45d-dqxlq                             Running
+deck-7f5c64b45d-vqvd2                             Running
+exdns-external-dns-644b5f7bb5-rr2vg               Running
+hook-647f968ffb-j8z78                             Running
+hook-647f968ffb-rq5l7                             Running
+horologium-9fdcd6b57-hfzjv                        Running
+jenkins-x-chartmuseum-d87cbb789-xk9rk             Running
+jenkins-x-controllerbuild-765df4bbdc-6zdnb        Running
+jenkins-x-controllerrole-d48659c4c-lcr2d          Running
+jenkins-x-gcactivities-1585981800-m5nks           Succeeded
+jenkins-x-gcactivities-1585983600-p4p6c           Succeeded
+jenkins-x-gcpods-1585981800-ch**m                 Succeeded
+jenkins-x-gcpods-1585983600-blw6k                 Succeeded
+jenkins-x-heapster-6c8b894c48-szln6               Running
+jenkins-x-nexus-549cd5b574-lx78f                  Pending
+jenkins-x-nexus-8b8dfd746-x5cdd                   Running
+**-vault-pr-193-84-gke-0                          Running
+**-vault-pr-193-84-gke-configurer-bf4d8f8bf-6h66v Running
+pipeline-7dff794486-6tnq7                         Running
+pipelinerunner-75c75bb574-xv87l                   Running
+tekton-pipelines-controller-666488cbd5-7dk9n      Running
+tide-6bcf8f9f7f-j6rdm                             Running
+vault-operator-75d5446bb7-786x9                   Running
+[31m
+Pipeline failed on stage 'release' : container 'step-verify-installation'. The execution of the pipeline has stopped.[0m
